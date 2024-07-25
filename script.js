@@ -6,22 +6,39 @@ const modalAddBook = document.querySelector("#addbtn2");
 
 let myLibrary = [];
 
-function Book(title, author, pages, read) {
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-    this.read = read;
-};
+class Book {
+    constructor (title, author, pages, read) {
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.read = read;
+    };
 
-Book.prototype.readStatus = function() {
-    this.read = this.read === "Read" ? "Not Read" : "Read";
-    addBookToLibrary();
-};
+    readStatus() {
+        this.read = this.read === "Read" ? "Not Read" : "Read";
+        addBookToLibrary();
+    };
 
-function removeCard(index) {
-    myLibrary.splice(index, 1);
-    addBookToLibrary();
-};
+    removeCard(index) {
+        myLibrary.splice(index, 1);
+        addBookToLibrary();
+    };
+}
+
+//function Book(title, author, pages, read) {
+//    this.title = title;
+//    this.author = author;
+//    this.pages = pages;
+//    this.read = read;
+//};
+//Book.prototype.readStatus = function() {
+//    this.read = this.read === "Read" ? "Not Read" : "Read";
+//    addBookToLibrary();
+//};
+//Book.prototype.removeCard = function(index) {
+//    myLibrary.splice(index, 1);
+//    addBookToLibrary();
+//};
 
 addBook.addEventListener("click", function() {
     dialog.showModal();
@@ -51,6 +68,7 @@ function addBookToLibrary() {
     //clear out the div that holds the cards
     const bookLibrary = document.querySelector(".book-library");
     bookLibrary.innerHTML = "";
+
     //loop through the myLibrary array create a card for each book and display it
     myLibrary.forEach(function(book, index) {
         let bookCard = document.createElement("div");
@@ -62,15 +80,13 @@ function addBookToLibrary() {
         readStatusButton.innerText = "Read Status"
         readStatusButton.addEventListener("click", function(){
             myLibrary[index].readStatus();
-            //addBookToLibrary();
         });
         bookCard.append(readStatusButton);
         
         const removeButton = document.createElement("button");
         removeButton.innerText = "Remove"
         removeButton.addEventListener("click", function() {
-            removeCard(index);
-            //addBookToLibrary();
+            myLibrary[index].removeCard();
         });
         bookCard.append(removeButton);
         
