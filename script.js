@@ -1,5 +1,6 @@
 const addBook = document.querySelector("#addbtn");
 const dialog = document.querySelector("dialog");
+const bookForm = document.querySelector("form");
 const closeModal = document.querySelector(".modal-close");
 const modalAddBook = document.querySelector("#addbtn2");
 
@@ -41,9 +42,8 @@ class Book {
 //};
 
 addBook.addEventListener("click", function() {
-    dialog.showModal();
-    const bookForm = document.querySelector("form");
     bookForm.reset();
+    dialog.showModal();
 });
 
 closeModal.addEventListener("click", function() {
@@ -69,7 +69,7 @@ function addBookToLibrary() {
     const bookLibrary = document.querySelector(".book-library");
     bookLibrary.innerHTML = "";
 
-    //loop through the myLibrary array create a card for each book and display it
+    //loop through the myLibrary array create a card for each book and display it in the booklibrary div
     myLibrary.forEach(function(book, index) {
         let bookCard = document.createElement("div");
         bookCard.classList.add("book");
@@ -91,7 +91,7 @@ function addBookToLibrary() {
         bookCard.append(removeButton);
         
         bookLibrary.append(bookCard);
-});  
+    });  
 };                        
 
 //add an example book

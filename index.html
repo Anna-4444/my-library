@@ -8,42 +8,38 @@
     <script src="script.js" defer></script>
 </head>
 <body>
-    <div class="hero-image">
+    <div class="content-wrapper">
         <header>
                 <h1>MyLibrary</h1>
                 <button id="addbtn">New Book</button>
         </header>
-
         <main>
-            <div class="book-library">
-                
-            </div>
+            <div class="book-library"></div>
         </main>
-
         <footer>
             <h4>Copyright 2024 | A. Bradley</h4>
         </footer> 
-    </div>
-    <dialog>
-        <span class="modal-close">X</span>
-        <form method="dialog">
-            <Label for="title">Title</Label>
-            <input type="text" id="title" name="title">
-            <label for="author">Author</label>
-            <input type="text" id="author" name="author">
-            <label for="pages">Pages</label>
-            <input type="number" id="pages" name="pages">
-            <Label>Have You Read The Book?</Label>
-            <label for="yes">
-                <input type="radio" id="yes" name="read-yet">
-                Yes
-            </label>
-            <label for="no">
-                <input type="radio" id="no" name="read-yet">
-                No
-            </label>
-            <button id="addbtn2">Add Book</button>
-        </form>
-    </dialog>
+        <dialog>
+            <span class="modal-close">X</span>
+            <form method="dialog">
+                <Label for="title">Title</Label>
+                <input type="text" id="title" name="title">
+                <label for="author">Author</label>
+                <input type="text" id="author" name="author">
+                <label for="pages">Pages</label>
+                <input type="number" id="pages" name="pages">
+                <Label>Have You Read The Book?</Label>
+                <label for="yes">
+                    <input type="radio" id="yes" name="read-yet">
+                    Yes
+                </label>
+                <label for="no">
+                    <input type="radio" id="no" name="read-yet">
+                    No
+                </label>
+                <button id="addbtn2">Add Book</button>
+            </form>
+        </dialog>
+    </div>       
 </body>
 </html>

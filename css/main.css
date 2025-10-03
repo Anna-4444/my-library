@@ -1,183 +1,142 @@
-/*
-  1. Use a more-intuitive box-sizing model.
-*/
-*, *::before, *::after {
-    box-sizing: border-box;
-  }
-  /*
-    2. Remove default margin
-  */
-  * {
-    margin: 0;
-  }
-  /*
-    Typographic tweaks!
-    3. Add accessible line-height
-    4. Improve text rendering
-  */
-  body {
-    line-height: 1.5;
-    -webkit-font-smoothing: antialiased;
-    background-color: black;
-  }
-  /*
-    5. Improve media defaults
-  */
-  img, picture, video, canvas, svg {
-    display: block;
-    max-width: 100%;
-  }
-  /*
-    6. Remove built-in form typography styles
-  */
-  input, button, textarea, select {
-    font: inherit;
-  }
-  /*
-    7. Avoid text overflows
-  */
-  p, h1, h2, h3, h4, h5, h6 {
-    overflow-wrap: break-word;
-  }
-  /*
-    8. Create a root stacking context
-  */
-  #root, #__next {
-    isolation: isolate;
-  }
+/***** Author's Custom CSS *****/
+:root {
+  --darkblue: #14213d;
+  --orange: #fca311;
+  --lightgray: #e5e5e5;
+  --black: #000000;
+}
 
-  /***** Author's Custom CSS *****/
-  :root {
-    --darkblue: #14213d;
-    --orange: #fca311;
-    --lightgray: #e5e5e5;
-    --black: #000000;
-  }
+* {
+  margin: 0;
+}
+  
+body {
+  background-color: black;
+  font-size: 16px;
+}
+  
+.content-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 100vh;
+  margin: 1rem auto;
+}
 
-  html {
-    font-size: 16px;
-  }
+header {
+  background-color: var(--black);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+}
 
-  h1 {
-    color: var(--orange);
-    font-size: 4rem;
-  }
+h1 {
+  color: var(--orange);
+  font-size: 4rem;
+}
 
-  h4 {
-    color: var(--orange);
-    padding: 1rem 0px;
-  }
+button {
+  background-color: var(--orange);
+  color: var(--black);
+  font-variant: small-caps;
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  border: none;
+}
 
-  button {
-    background-color: var(--orange);
-    color: var(--black);
-    padding: 0.5rem 1rem;
-    border-radius: 8px;
-    border: none;
-    font-variant: small-caps;
-    font-size: 1rem;
-  }
+button:hover {
+  cursor: pointer;
+  box-shadow: 0px 0px 3px 3px var(--orange);
+}
 
-  button:hover {
-    cursor: pointer;
-    box-shadow: 0px 0px 3px 3px var(--orange);
-  }
+main {
+  flex: 1;
+}
+.book-library {
+  width: 100%;
+  margin: 2rem auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  row-gap: 1rem;
+}
 
-  .hero-image {
-    height: 100vh;
-    background-image: /*linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),*/ url("../img/tom-barrett-unsplash.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-  }
+.book {
+  width: 80%;
+  background-color: var(--lightgray);
+  border-radius: 10px;
+  padding: 1rem;
+  color: var(--darkblue);
+  box-shadow: 0px 0px 5px 5px var(--darkblue);
+  line-height: 1.5;
+}
 
-  header {
-    background-color: var(--black);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 1rem;
-  }
+.book button {
+  background-color: var(--darkblue);
+  color: var(--lightgray);
+  padding: 0.5rem 1rem;
+  margin-right: 1rem;
+}
 
-  main {
-    height: clamp(50vh, 70vh,100vh);
-  }
+footer {
+  background-color: black;
+  text-align: center;
+}
 
+h4 {
+  color: var(--orange);
+  padding: 1rem 0px;
+}
+
+dialog {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: var(--lightgray);
+  border-radius: 10px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  clear: both;
+}
+
+.modal-close {
+  float: right;
+  margin-bottom: 1rem;
+}
+
+.modal-close:hover {
+  cursor: pointer;
+  font-weight: bold;
+}
+
+label {
+  font-variant: small-caps;
+}
+
+input {
+  margin-bottom: 1rem;
+  padding: 0.5rem 0;
+}
+
+@media (min-width: 700px) {
   .book-library {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    row-gap: 2rem;
-    width: 100%;
-    margin: 3rem auto;
+      justify-content: space-between;
+      width: 85%;
   }
-
   .book {
-    width: 80%;
-    background-color: var(--lightgray);
-    border-radius: 10px;
-    padding: 1rem;
-    color: var(--darkblue);
-    box-shadow: 0px 0px 5px 5px var(--darkblue);
+      width: 45%;
   }
+}
 
-  .book button {
-    margin-right: 1rem;
-    padding: 0.25rem 1rem;
-    background-color: var(--darkblue);
-    color: var(--lightgray);
+@media (min-width: 1200px) {
+  .book {
+      width: 30%;
   }
-
-  footer {
-    background-color: black;
-    text-align: center;
-  }
-
-  dialog {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: var(--lightgray);
-    border-radius: 10px;
-  }
-
-  form {
-    display: flex;
-    flex-direction: column;
-    clear: both;
-  }
-
- .modal-close {
-    float: right;
-    margin-bottom: 1rem;
-  }
-
-  .modal-close:hover {
-    cursor: pointer;
-    font-weight: bold;
-  }
-
-  label {
-    font-variant: small-caps;
-  }
-
-  input {
-    margin-bottom: 1rem;
-  }
-
-  @media (min-width: 700px) {
-    .book-library {
-        justify-content: space-between;
-        width: 80%;
-    }
-    .book {
-        width: 45%;
-    }
-  }
-
-  @media (min-width: 1200px) {
-    .book {
-        width: 30%;
-    }
-  }
+}
