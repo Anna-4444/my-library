@@ -3,10 +3,10 @@ const dialog = document.querySelector("dialog");
 const bookForm = document.querySelector("form");
 const closeModal = document.querySelector(".modal-close");
 const modalAddBook = document.querySelector("#addbtn2");
-
-
+const bookLibrary = document.querySelector(".book-library");
 let myLibrary = [];
 
+// Class syntax
 class Book {
     constructor (title, author, pages, read) {
         this.title = title;
@@ -17,15 +17,16 @@ class Book {
 
     readStatus() {
         this.read = this.read === "Read" ? "Not Read" : "Read";
-        addBookToLibrary();
+        displayMyLibraryBooks();
     };
 
     removeCard(index) {
         myLibrary.splice(index, 1);
-        addBookToLibrary();
+        displayMyLibraryBooks();
     };
 }
 
+// Constructor syntax
 //function Book(title, author, pages, read) {
 //    this.title = title;
 //    this.author = author;
@@ -34,11 +35,11 @@ class Book {
 //};
 //Book.prototype.readStatus = function() {
 //    this.read = this.read === "Read" ? "Not Read" : "Read";
-//    addBookToLibrary();
+//    displayMyLibraryBooks();
 //};
 //Book.prototype.removeCard = function(index) {
 //    myLibrary.splice(index, 1);
-//    addBookToLibrary();
+//    displayMyLibraryBooks();
 //};
 
 addBook.addEventListener("click", function() {
@@ -50,23 +51,23 @@ closeModal.addEventListener("click", function() {
     dialog.close();
 });
 
-modalAddBook.addEventListener("click", function() {
+modalAddBook.addEventListener("click", addBookToLibrary);
+
+function addBookToLibrary() {
     const title = document.querySelector("#title").value;
     const author = document.querySelector("#author").value;
     const pages = document.querySelector("#pages").value;
     const yes = document.querySelector("#yes");
-
     let read = "";
     yes.checked ? read = "Read" : read = "Not Read"
-
+    // Create the new book object and store it in the myLibrary array
     const newBook = new Book(title, author, pages, read);
     myLibrary.push(newBook);
-    addBookToLibrary()
-});
+    displayMyLibraryBooks()
+}
 
-function addBookToLibrary() { 
+function displayMyLibraryBooks() { 
     //clear out the div that holds the cards
-    const bookLibrary = document.querySelector(".book-library");
     bookLibrary.innerHTML = "";
 
     //loop through the myLibrary array create a card for each book and display it in the booklibrary div
@@ -97,5 +98,5 @@ function addBookToLibrary() {
 //add an example book
 const exampleBook = new Book("The Catcher in the Rye", "J.D. Salinger", 234, "Read");
     myLibrary.push(exampleBook);
-    addBookToLibrary()
+    displayMyLibraryBooks()
 

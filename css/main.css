@@ -1,9 +1,11 @@
 /***** Author's Custom CSS *****/
 :root {
-  --darkblue: #14213d;
-  --orange: #fca311;
-  --lightgray: #e5e5e5;
-  --black: #000000;
+  --white: rgb(247, 246, 246);
+  --gray: lightgray;
+  --orange: orange;
+  --darkblue: #1f2937;
+  --blue: #3882f6;
+  --lightblue: #e9fff9;
 }
 
 * {
@@ -11,8 +13,9 @@
 }
   
 body {
-  background-color: black;
+  background-color: var(--darkblue);
   font-size: 16px;
+  font-family: roboto, sans-serif;
 }
   
 .content-wrapper {
@@ -24,7 +27,7 @@ body {
 }
 
 header {
-  background-color: var(--black);
+  background-color: var(--darkblue);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -33,61 +36,63 @@ header {
 }
 
 h1 {
-  color: var(--orange);
-  font-size: 4rem;
+  color: var(--white);
+  font-size: 3rem;
 }
 
 button {
   background-color: var(--orange);
-  color: var(--black);
+  color: var(--darkblue);
   font-variant: small-caps;
   font-size: 1rem;
-  padding: 0.5rem 1rem;
+  padding: 0.25rem 1rem;
   border-radius: 8px;
   border: none;
 }
 
 button:hover {
   cursor: pointer;
-  box-shadow: 0px 0px 3px 3px var(--orange);
+  opacity: 0.75;
 }
 
 main {
   flex: 1;
+  background-color: var(--lightblue);
 }
 .book-library {
-  width: 100%;
+  width: 90%;
   margin: 2rem auto;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  row-gap: 1rem;
+  gap: 1rem;
 }
 
 .book {
   width: 80%;
-  background-color: var(--lightgray);
+  background-color: var(--white);
   border-radius: 10px;
+  border-left: 0.5rem solid var(--darkblue);
   padding: 1rem;
   color: var(--darkblue);
-  box-shadow: 0px 0px 5px 5px var(--darkblue);
+  box-shadow: 3px 3px 5px var(--darkblue);
   line-height: 1.5;
 }
 
 .book button {
-  background-color: var(--darkblue);
-  color: var(--lightgray);
-  padding: 0.5rem 1rem;
+  background-color: var(--blue);
+  color: var(--white);
   margin-right: 1rem;
+  margin-top: 1rem;
 }
 
 footer {
-  background-color: black;
+  background-color: var(--darkblue);
   text-align: center;
 }
 
 h4 {
-  color: var(--orange);
+  color: var(--white);
   padding: 1rem 0px;
 }
 
@@ -96,7 +101,7 @@ dialog {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: var(--lightgray);
+  background-color: var(--gray);
   border-radius: 10px;
 }
 
@@ -118,25 +123,34 @@ form {
 
 label {
   font-variant: small-caps;
+  color: var(--darkblue);
 }
 
 input {
   margin-bottom: 1rem;
   padding: 0.5rem 0;
+  background-color: var(--white);
 }
 
 @media (min-width: 700px) {
+  header {
+    padding: 3rem;
+  }
+  h1 {
+    font-size: 4rem;
+  }
   .book-library {
       justify-content: space-between;
-      width: 85%;
+      /* width: 85%; */
   }
   .book {
-      width: 45%;
+      width: 42%;
+      border-left: 1rem solid var(--darkblue);
   }
 }
 
 @media (min-width: 1200px) {
   .book {
-      width: 30%;
+      width: 28%;
   }
 }
