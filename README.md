@@ -4,7 +4,7 @@ A simple JavaScript-powered library app built as part of [The Odin Project](http
 
 Users can add, edit, and delete books from their personal library — with support for search, read/unread filters, and persistent storage using `localStorage`.
 
-🚀 [View the Live Demo](https://anna-444.github.io/library-app/)  
+🚀 [View the Live Demo](https://anna-444.github.io/my-library/)  
 
 ---
 
