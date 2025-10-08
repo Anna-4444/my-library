@@ -25,6 +25,9 @@ class Book {
         this.read = read;
         this.id = id;
     }
+    toggleReadStatus() {
+        this.read = !this.read
+    }
 }
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -131,7 +134,8 @@ function displayMyLibraryBooks(libraryArray) {
         const readStatusButton = document.createElement("button");
         readStatusButton.innerText = "Change Read Status";
         readStatusButton.addEventListener("click", () => {
-            toggleReadStatus(book.id)
+            book.toggleReadStatus();
+            saveToStorage("myLibrary", myLibrary);
             displayMyLibraryBooks(myLibrary);
         });
         // Remove button
@@ -152,14 +156,6 @@ function displayMyLibraryBooks(libraryArray) {
         bookLibrary.append(bookCard);
     });  
 }; 
-
-function toggleReadStatus(id) {
-    const foundBook = myLibrary.find(b => b.id === id);
-    if (foundBook) {
-        foundBook.read = !foundBook.read;
-        saveToStorage("myLibrary", myLibrary);
-    }
-}
 
 function removeBookFromLibrary(id) { 
     const index = myLibrary.findIndex(b => b.id === id)
